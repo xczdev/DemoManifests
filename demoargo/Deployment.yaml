@@ -17,3 +17,9 @@ spec:
           image: 989988/demoapp:1.0.0
           ports:
             - containerPort: 8080
+          livenessProbe:
+          httpGet:
+            path: /actuator/health
+            port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 10

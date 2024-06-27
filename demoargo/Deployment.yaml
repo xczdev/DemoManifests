@@ -3,17 +3,20 @@ kind: Deployment
 metadata:
   name: demo-deployment
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: demo
+  syncPolicy:
+    automated:
+      prune: true
   template:
     metadata:
       labels:
         app: demo
     spec:
       containers:
-      - name: demo
-        image: 989988/demoapp:1.0.0
-        ports:
-        - containerPort: 8080
+        - name: demo
+          image: 989988/demoapp:1.0.0
+          ports:
+            - containerPort: 8080

@@ -8,7 +8,10 @@ spec:
     matchLabels:
       app: demo
   syncPolicy:
-    automated: {}
+    automated:
+      prune: true
+      allowEmpty: true
+      selfHeal: true
   template:
     metadata:
       labels:

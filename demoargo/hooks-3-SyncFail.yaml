@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  generateName: app-notification-SyncFail
+  generateName: app-notification-syncfail-
   annotations:
     argocd.argoproj.io/hook: SyncFail
     argocd.argoproj.io/hook-delete-policy: HookSucceeded
@@ -9,7 +9,7 @@ spec:
   template:
     spec:
       containers:
-      - name: echo-notification-SyncFail
+      - name: echo-notification-syncfail
         image: alpine
         command:
           - "echo L’application sera synchronisé avec un nouvel état désiré."

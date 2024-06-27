@@ -7,6 +7,17 @@ spec:
     app: demo
   ports:
     - protocol: TCP
-      port: 80
+      port: 90
       targetPort: 8080
   type: NodePort
+---
+kind: Ingress
+metadata:
+  name: test-ingress
+  annotations:
+    demo-service.formation.argocd.local/rewrite-gartget: /
+spec:
+  rules:
+    -http:
+      paths:
+        - path:

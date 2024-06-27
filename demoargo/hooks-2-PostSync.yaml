@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  generateName: app-notification-PostSync
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+spec:
+  template:
+    spec:
+      containers:
+      - name: echo-notification-PostSync
+        image: alpine
+        command:
+          - "echo L’application sera synchronisé avec un nouvel état désiré."
+      restartPolicy: Never
+  backoffLimit: 2

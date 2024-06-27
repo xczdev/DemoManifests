@@ -1,17 +1,17 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: test-ingress
-  annotations:
-    demo-service.formation.argocd.local/rewrite-gartget: /
+  name: ingress
+  namespace: argocd
 spec:
   rules:
-    -http:
-      paths:
-        - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: ajoutIngress
-            port:
-              number: 90
+    -host: minikube.local
+      http:
+        paths:
+          - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: demo-service
+              port:
+                number: 70

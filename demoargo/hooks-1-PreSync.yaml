@@ -12,6 +12,8 @@ spec:
       - name: echo-notification-presync
         image: alpine
         command:
+          - "/bin/sh"
+          - "-c"
           - "echo L’application sera synchronisé avec un nouvel état désiré."
       restartPolicy: Never
   backoffLimit: 2

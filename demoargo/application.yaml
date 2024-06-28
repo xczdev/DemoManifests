@@ -1,17 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: exercice2
+  name: demoargo
   namespace: argocd
 spec:
-  project: default
+  project: spring-apps
   source:
     repoURL: https://github.com/xczdev/DemoManifests.git
     targetRevision: HEAD
     path: demoargo
   destination:
     server: https://kubernetes.default.svc
-    namespace: default
+    namespace: spring-apps-dev
   syncPolicy:
     automated:
       prune: true
